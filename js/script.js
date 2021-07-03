@@ -24,3 +24,39 @@ const movieDB = {
     ]
 };
 
+//1-е задание: удаялем рекламные блоки на странице
+
+const adv = document.querySelectorAll('.promo__adv img');
+
+adv.forEach(item => {
+    item.remove();
+});
+
+//2-е задание: 
+
+const poster = document.querySelector('.promo__bg'),
+    genre = poster.querySelector('.promo__genre');
+
+genre.textContent = 'драма';
+
+//3-е задание:
+
+poster.style.backgroundImage = "url('img/bg.jpg')";
+
+//4-е задание:
+
+const movieList = document.querySelector('.promo__interactive-list');
+
+movieList.innerHTML = ""; //удаляем(очищаем) список фильмов
+
+movieDB.movies.sort(); //сортируем по алфавиту, movies - это массив, он имеет метод .sort
+
+//5-е задание:
+
+movieDB.movies.forEach((film, i) => {
+    movieList.innerHTML += `
+        <li class="promo__interactive-item">${i + 1} ${film}
+            <div class="delete"></div>
+        </li>
+    `;
+});
